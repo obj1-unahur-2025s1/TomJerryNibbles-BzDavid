@@ -1,17 +1,44 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "Caso de prueba" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "Primeros tests" {
+    assert.equals(10, tom.velocidadMaxima())
+    tom.comer(jerry)
+    assert.equals(15.2, tom.velocidadMaxima())
+    assert.equals(102, tom.energia())
+    tom.correr(24)
+    assert.equals(14, tom.velocidadMaxima())
+    assert.equals(90, tom.energia())
+    tom.comer(nibbles)
+    assert.equals(18.7, tom.velocidadMaxima())
+    assert.equals(137, tom.energia())
+    jerry.cumplirAnios()
+    tom.comer(jerry)
+    assert.equals(25.9, tom.velocidadMaxima())
+    assert.equals(209, tom.energia())
+    tom.correr(38)
+    assert.equals(24, tom.velocidadMaxima())
+    assert.equals(190, tom.energia())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "Segundos tests" {
+    tom.comer(jerry)
+    assert.equals(15.2, tom.velocidadMaxima())
+    assert.equals(102, tom.energia())
+    assert.that(tom.puedeCazarADistancia_(100))
+    tom.cazarAlRaton_ADistancia_(jerry, 100)
+    assert.equals(104, tom.energia())
+    assert.equals(100, tom.distanciaRecorrida())
+    assert.equals(jerry, tom.ultimoRatonComido()) 
+    tom.comer(perez)
+    assert.equals(116, tom.energia())
+    tom.comer(perez)
+    assert.equals(183, tom.energia())
+    assert.notThat(tom.puedeCazarADistancia_(500))
+    tom.cazarAlRaton_ADistancia_(perez, 26)
+    assert.equals(182, tom.energia())
+    assert.equals(126, tom.distanciaRecorrida())
+    assert.equals(perez, tom.ultimoRatonComido())
   }
-
-  test "test 4" {
-    assert.notThat(false)
-  }
-
 }
